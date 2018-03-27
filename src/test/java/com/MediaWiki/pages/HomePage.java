@@ -1,5 +1,11 @@
 package com.MediaWiki.pages;
 
-public class HomePage {
+import org.openqa.selenium.support.PageFactory;
 
+import com.MediaWiki.utilities.Driver;
+
+public class HomePage {
+	public HomePage() {
+		PageFactory.initElements(Driver.getDriver(), this);
+	}
 }
