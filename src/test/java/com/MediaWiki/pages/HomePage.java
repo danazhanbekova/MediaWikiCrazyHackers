@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.MediaWiki.utilities.Driver;
+import com.MediaWiki.utilities.NumbersUtil;
 
 public class HomePage {
 	public HomePage() {
@@ -29,5 +30,56 @@ public class HomePage {
 		logInBtn.click();
 
 	}
+	
+	String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+	String specialChars = "!@#$%^&*(_";
+	String numbers = "0123456789";
+	NumbersUtil numsUtil = new NumbersUtil();
+	
+	public String getRandomUppercaseLetters(int count) {
+		String randomUpperstr = "";
+		for (int i = 1; i <= count; i++) {
+		int ranNum = numsUtil.getRandomInt(25);
+		randomUpperstr = randomUpperstr+upperCaseLetters.charAt(ranNum);
+		}
+		return randomUpperstr;
+	}
+	
 
+	public String getRandomLowercaseLetters(int count) {
+		String randomLowerstr = "";
+		for (int i =1; i<=count; i++){
+			int ranNum2 = numsUtil.getRandomInt(25);
+			randomLowerstr = randomLowerstr + lowerCaseLetters.charAt(ranNum2);
+		}
+		return randomLowerstr;
+	}
+	
+	public String getRandomSpecialChars(int count) {
+		String randomScecial = "";
+		for( int i = 1; i <= count; i++){
+	    int ranScecial = numsUtil.getRandomInt(specialChars.length()-1); 
+			randomScecial += specialChars.charAt(ranScecial);
+		}
+		return randomScecial;
+	}
+	
+	public String getRandomNumbers(int count) {
+		String ranNum ="";
+		for (int i = 1; i<=count; i++){
+			int randomNumbers = numsUtil.getRandomInt(numbers.length()-1);
+			ranNum +=numbers.charAt(randomNumbers);
+		}
+		return ranNum;
+	}
+	
+	public String generatePassword(int upper, int lower, int special, int num) {
+		
+		
+		return getRandomUppercaseLetters(upper)+getRandomLowercaseLetters(lower)+getRandomSpecialChars(special)+getRandomNumbers(num);
+	}
+	
 }
+
+
