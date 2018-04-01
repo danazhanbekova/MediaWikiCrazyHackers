@@ -1,4 +1,6 @@
- package com.MediaWiki.step_definitions;
+package com.MediaWiki.step_definitions;
+
+import static org.testng.Assert.assertTrue;
 
 import com.MediaWiki.pages.FileUploadPage;
 import com.MediaWiki.pages.HomePage;
@@ -17,22 +19,26 @@ public class UploadingFileStepDefs {
 	public void i_should_log_into_WikiMedia() {
 		System.out.println("Loged into WikiMedia");
 		Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+		homePage.logIn.click();
 		homePage.loginMethod(ConfigurationReader.getProperty("username"), ConfigurationReader.getProperty("password"));
 		fileUploadPage.fileUpload.click();
 	}
 
 	@When("^Logo for page should be visible$")
 	public void logo_for_page_should_be_visible() {
-
+		assertTrue(fileUploadPage.logo.isDisplayed(), "Logo doesn't displayed");
 	}
 
 	@Then("^I press upload file section$")
 	public void i_press_upload_file_section() {
+		fileUploadPage.uploadFileMethod();
 
 	}
 
 	@Then("^I upload groups logo$")
 	public void i_upload_groups_logo() {
+		fileUploadPage.file.click();
+		assertTrue(fileUploadPage.uploadedFile.isDisplayed(), "is not displayed");
 
 	}
 
