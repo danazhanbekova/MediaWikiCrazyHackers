@@ -23,6 +23,19 @@ public class HomePage {
 
 	@FindBy(id = "wpLoginAttempt")
 	public WebElement logInBtn;
+	
+	@FindBy(linkText = "create this page")
+	public WebElement createPage;
+	
+	@FindBy(linkText = "search the related logs")
+	public WebElement searchRelatedLogs;
+	
+	@FindBy(linkText = "search for this page title")
+	public WebElement searchPageTitle;
+	
+	
+	
+	
 
 	public void loginMethod(String username, String pwd) {
 		userName.sendKeys(username);
