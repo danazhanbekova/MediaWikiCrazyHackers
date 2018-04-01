@@ -1,4 +1,4 @@
-package com.MediaWiki.step_definitions;
+ package com.MediaWiki.step_definitions;
 
 import com.MediaWiki.pages.FileUploadPage;
 import com.MediaWiki.pages.HomePage;

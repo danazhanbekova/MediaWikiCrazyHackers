@@ -2,7 +2,7 @@ Feature: Create Account
 
   Background: 
     Given I open a MediaWiki page
-
+@account
   Scenario Outline: Verify error message with invalid registration data
     When I click on Create Account link
     And I enter registration credentials in the "<username>", "<password>", "<confirm_password>"

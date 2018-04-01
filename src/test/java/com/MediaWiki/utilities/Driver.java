@@ -15,13 +15,14 @@ public class Driver {
 	public static WebDriver getDriver() {
 		if (driver == null) {
 			switch (ConfigurationReader.getProperty("browser")) {
-			case "firefox":
-				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
-				break;
+	
 			case "chrome":
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
+				break;
+			case "firefox":
+				WebDriverManager.firefoxdriver().setup();
+				driver = new FirefoxDriver();
 				break;
 			default:
 				WebDriverManager.firefoxdriver().setup();
@@ -37,4 +38,6 @@ public class Driver {
 			driver = null;
 		}
 	}
+
+	
 }
