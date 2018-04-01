@@ -1,9 +1,20 @@
 package com.MediaWiki.utilities;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -115,6 +126,35 @@ public class BrowserUtils {
 			}
 		}
 		Driver.getDriver().switchTo().window(origin);
+	}
+	
+	
+	public static String readExcel(String file, int row, int col) {
+		String filePath ="./src/test/resources/testData/"+file;
+		Cell cell=null;
+		try {
+			FileInputStream inputStream = new FileInputStream(filePath);
+			Workbook workbook = WorkbookFactory.create(inputStream);
+			Sheet worksheet = workbook.getSheetAt(0);
+			Row rowSheet = worksheet.getRow(row);
+			cell = rowSheet.getCell(col);
+			workbook.close();
+			inputStream.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EncryptedDocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cell.toString();
 	}
 
 }
