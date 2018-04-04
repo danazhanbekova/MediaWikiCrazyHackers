@@ -45,6 +45,9 @@ public class FileUploadPage {
 	@FindBy(xpath = "//a//img[@alt='File:MyLogo.jpg']")
 	public WebElement uploadedFile;
 
+	@FindBy(linkText = "Log out")
+	public WebElement logOut;
+
 	String filePath = "/Users/MarifatAzamatuulu/Desktop/myLogo.jpg";
 
 	public void uploadFileMethod() {
@@ -62,4 +65,6 @@ public class FileUploadPage {
 		BrowserUtils.waitFor(4);
 
 	}
+
+
 }
