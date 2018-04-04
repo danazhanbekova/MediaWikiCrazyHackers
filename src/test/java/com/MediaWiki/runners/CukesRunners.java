@@ -8,7 +8,11 @@ public class CukesRunners {
 			"html:target/cucumber-report"
 			},
 			
+<<<<<<< HEAD
 			tags = "@uplad_file",
+=======
+			tags = "@printable",
+>>>>>>> branch 'master' of https://github.com/danazhanbekova/MediaWikiCrazyHackers.git
 			features = "src/test/resources/com/MediaWiki/features/",
 			glue = "com/MediaWiki/step_definitions/",
 			dryRun = false)
