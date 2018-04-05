@@ -33,6 +33,9 @@ public class HomePage {
 	@FindBy(linkText = "search for this page title")
 	public WebElement searchPageTitle;
 	
+	@FindBy(linkText = "Printable version")
+	public WebElement printableVersion;
+	
 	
 	
 	
@@ -49,6 +52,7 @@ public class HomePage {
 	String specialChars = "!@#$%^&*(_";
 	String numbers = "0123456789";
 	NumbersUtil numsUtil = new NumbersUtil();
+
 	
 	public String getRandomUppercaseLetters(int count) {
 		String randomUpperstr = "";
