@@ -2,7 +2,7 @@ Feature: Create Account
 
   Background: 
     Given I open a MediaWiki page
-@account
+
   Scenario Outline: Verify error message with invalid registration data
     When I click on Create Account link
     And I enter registration credentials in the "<username>", "<password>", "<confirm_password>"
@@ -15,7 +15,7 @@ Feature: Create Account
       | Flower   | abc123   | abc1234          | There are problems with some of your input. The passwords you entered do not match |
       
       
-
+@account
   Scenario: Create account using  Main page
     When I create a new account with random username
     Then I should be able to create a new account

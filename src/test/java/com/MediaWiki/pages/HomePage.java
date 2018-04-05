@@ -14,11 +14,11 @@ public class HomePage {
 
 	@FindBy(linkText = "Log in")
 	public WebElement logIn;
-
-	@FindBy(id = "wpName1")
+	
+	@FindBy(xpath="//input[@id='wpName2']")
 	public WebElement userName;
 
-	@FindBy(id = "wpPassword1")
+	@FindBy(xpath = "//input[@id='wpPassword2']")
 	public WebElement password;
 
 	@FindBy(id = "wpLoginAttempt")
@@ -89,9 +89,20 @@ public class HomePage {
 	
 	public String generatePassword(int upper, int lower, int special, int num) {
 		
-		
 		return getRandomUppercaseLetters(upper)+getRandomLowercaseLetters(lower)+getRandomSpecialChars(special)+getRandomNumbers(num);
 	}
+	
+	@FindBy(xpath="//*[@id='pt-createaccount']/a") 
+	public WebElement createAccount;
+	
+	@FindBy(xpath="//input[@id='wpRetype']")
+	public WebElement confirmPassword;
+	
+	@FindBy(xpath="//button[@id='wpCreateaccount']")
+	public WebElement createYourAccount;
+	
+	@FindBy(xpath="//h1[@id='firstHeading']")
+	public WebElement newAccount;
 	
 }
 

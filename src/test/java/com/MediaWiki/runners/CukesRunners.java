@@ -8,10 +8,10 @@ public class CukesRunners {
 			"html:target/cucumber-report"
 			},
 			
-			tags = "@james",
+			tags = "@account",
 			features = "src/test/resources/com/MediaWiki/features/",
 			glue = "com/MediaWiki/step_definitions/",
-			dryRun = true)
+			dryRun = false)
 	public class CukesRunner extends AbstractTestNGCucumberTests {
 
 	}
