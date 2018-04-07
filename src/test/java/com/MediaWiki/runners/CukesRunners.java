@@ -8,7 +8,7 @@ public class CukesRunners {
 			"html:target/cucumber-report"
 			},
 			
-			tags = "@account",
+			tags = "@monika",
 			features = "src/test/resources/com/MediaWiki/features/",
 			glue = "com/MediaWiki/step_definitions/",
 			dryRun = false)

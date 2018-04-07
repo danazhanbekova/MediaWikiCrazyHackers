@@ -1,4 +1,4 @@
-Feature: Create New Page
+ Feature: Create New Page
 
   
   Scenario Outline: Create and Verify New Page Creation

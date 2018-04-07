@@ -1,11 +1,16 @@
 package com.MediaWiki.pages;
 
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.MediaWiki.utilities.Driver;
 import com.MediaWiki.utilities.NumbersUtil;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class HomePage {
 	public HomePage() {
@@ -15,10 +20,10 @@ public class HomePage {
 	@FindBy(linkText = "Log in")
 	public WebElement logIn;
 	
-	@FindBy(xpath="//input[@id='wpName2']")
+	@FindBy(xpath="//input[@id='wpName1']")
 	public WebElement userName;
 
-	@FindBy(xpath = "//input[@id='wpPassword2']")
+	@FindBy(xpath = "//input[@id='wpPassword1']")
 	public WebElement password;
 
 	@FindBy(id = "wpLoginAttempt")
@@ -109,5 +114,6 @@ public class HomePage {
 	public WebElement newAccount;
 	
 }
+
 
 

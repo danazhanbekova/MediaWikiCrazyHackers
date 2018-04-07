@@ -24,11 +24,13 @@ public class UploadingFileStepDefs {
 		Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 		homePage.logIn.click();
 		homePage.loginMethod(ConfigurationReader.getProperty("username"), ConfigurationReader.getProperty("password"));
-		fileUploadPage.fileUpload.click();
+		
 	}
 
 	@When("^Logo for page should be visible$")
+	
 	public void logo_for_page_should_be_visible() {
+		fileUploadPage.fileUpload.click();
 		assertTrue(fileUploadPage.logo.isDisplayed(), "Logo doesn't displayed");
 	}
 
