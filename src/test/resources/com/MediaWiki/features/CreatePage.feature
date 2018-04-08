@@ -20,4 +20,4 @@ Feature: Create New Page
     Then I should be taken to that "<Newpage>" directly
     Examples:
     |Newpage|
-    |1|
+    |Turkey Sausage|

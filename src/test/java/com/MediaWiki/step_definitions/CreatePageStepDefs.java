@@ -69,14 +69,16 @@ public class CreatePageStepDefs {
 
 	@When("^I attempt to  a create a \"([^\"]*)\" that already exists$")
 	public void i_attempt_to_a_create_a_that_already_exists(String pagePrefix) {
-		Driver.getDriver().get(createURL+"RandomPage"+pagePrefix+pageSuffix);
+		Driver.getDriver().get(createURL+pagePrefix);
 		boolean b =true;
 		try {
 			Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			b=Driver.getDriver().findElement(By.linkText("create this page")).isDisplayed();
 		} catch (Exception e) {
-			assertFalse(b);
+			b=false;
+			
 		}
+		assertFalse(b);
 		Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
