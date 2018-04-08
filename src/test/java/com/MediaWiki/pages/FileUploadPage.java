@@ -16,7 +16,7 @@ public class FileUploadPage {
 	}
 
 	@FindBy(linkText = "Upload file")
-	public WebElement fileUpload;
+	public WebElement uploadFile;
 
 	@FindBy(className = "mw-wiki-logo")
 	public WebElement logo;
@@ -43,10 +43,28 @@ public class FileUploadPage {
 	public WebElement file;
 
 	@FindBy(xpath = "//a//img[@alt='File:MyLogo.jpg']")
-	public WebElement uploadedFile;
+	public WebElement fileUpload;
 
 	@FindBy(linkText = "Log out")
 	public WebElement logOut;
+
+	@FindBy(linkText = "Main page")
+	public WebElement mainPage;
+
+	@FindBy(linkText = "Recent changes")
+	public WebElement recentChanges;
+
+	@FindBy(linkText = "Random page")
+	public WebElement randomPage;
+	
+	@FindBy(linkText = "Help")
+	public WebElement help;
+
+	@FindBy(linkText = "Special pages")
+	public WebElement specailPages;
+
+	@FindBy(linkText = "Printable version")
+	public WebElement printableVersion;
 
 	String filePath = "/Users/MarifatAzamatuulu/Desktop/myLogo.jpg";
 
@@ -65,6 +83,5 @@ public class FileUploadPage {
 		BrowserUtils.waitFor(4);
 
 	}
-
 
 }

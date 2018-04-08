@@ -2,8 +2,6 @@ package com.MediaWiki.step_definitions;
 
 import static org.testng.Assert.assertTrue;
 
-import java.util.List;
-
 import com.MediaWiki.pages.FileUploadPage;
 import com.MediaWiki.pages.HomePage;
 import com.MediaWiki.utilities.BrowserUtils;
@@ -24,7 +22,7 @@ public class UploadingFileStepDefs {
 		Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 		homePage.logIn.click();
 		homePage.loginMethod(ConfigurationReader.getProperty("username"), ConfigurationReader.getProperty("password"));
-		fileUploadPage.fileUpload.click();
+		fileUploadPage.uploadFile.click();
 	}
 
 	@When("^Logo for page should be visible$")
@@ -41,7 +39,7 @@ public class UploadingFileStepDefs {
 	@Then("^I upload groups logo$")
 	public void i_upload_groups_logo() {
 		fileUploadPage.file.click();
-		assertTrue(fileUploadPage.uploadedFile.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.fileUpload.isDisplayed(), "is not displayed");
 
 	}
 
@@ -49,15 +47,18 @@ public class UploadingFileStepDefs {
 	public void i_logout_from_browser() {
 		BrowserUtils.waitFor(4);
 		fileUploadPage.logOut.click();
-	}
-
-	@When("^I press a Upload file:$")
-	public void i_press_a_Upload_file(List<String> menuOption) {
 
 	}
 
-	@Then("^I should see menu option \"([^\"]*)\"$")
-	public void i_should_see_menu_option(String menuOption) {
-
+	@Then("^menu options should be visible$")
+	public void menu_options_should_be_visible() {
+		assertTrue(fileUploadPage.mainPage.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.recentChanges.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.randomPage.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.help.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.mainPage.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.specailPages.isDisplayed(), "is not displayed");
+		assertTrue(fileUploadPage.printableVersion.isDisplayed(), "is not displayed");
 	}
+
 }
