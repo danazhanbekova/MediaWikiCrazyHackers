@@ -3,6 +3,9 @@ package com.MediaWiki.step_definitions;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,16 +25,21 @@ public class PrintableVersionStepDef {
 	
 	
 	@When("^I click on Printable Version$")
-	public void i_click_on_Printable_Version() throws InterruptedException {
+	public void i_click_on_Printable_Version() {
 	   homePage.printableVersion.click();
-	   Thread.sleep(1000);
-//	  / Alert alert = Driver.getDriver().switchTo().alert();
+	   Driver.getDriver().manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+	   ((JavascriptExecutor)Driver.getDriver()).executeAsyncScript(
+	       "var callback = arguments[1];" +
+	       "window.print = function(){callback();};" +
+	       "arguments[0].click();"
+	       , print.printButton);
+//	   Alert alert = Driver.getDriver().switchTo().alert();
 //	   alert.dismiss();
 //	   WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 //		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 //		Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandles().toArray()[1].toString());
-		Actions action = new Actions(Driver.getDriver());
-		action.moveToElement(print.cancelButton).click().perform();
+//		Actions action = new Actions(Driver.getDriver());
+//		action.moveToElement(print.cancelButton).click().perform();
 	}
 
 	@Then("^Print and cancel buttons should be visible$")

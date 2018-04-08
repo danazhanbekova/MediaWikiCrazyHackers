@@ -13,9 +13,9 @@ Feature: Checking Printable Version functionality
     When I hover to Color dropdown element and press it
     Then I should see two options Color and Black and White
     
-   # @printable
+   
     Scenario: Checking new window pop up and print page is visible
-    When I When I click on Printable Version
+    When I click on Printable Version
     Then Print page is visible
     When I hover to More settings and press it
     Then I should see Paper size dropdown
