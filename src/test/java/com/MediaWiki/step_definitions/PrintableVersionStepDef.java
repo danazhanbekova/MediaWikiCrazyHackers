@@ -3,10 +3,7 @@ package com.MediaWiki.step_definitions;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.json.JsonException;
 
 import com.MediaWiki.pages.HomePage;
 import com.MediaWiki.pages.PrintableVersionPage;

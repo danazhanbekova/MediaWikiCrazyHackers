@@ -56,7 +56,7 @@ public class FileUploadPage {
 
 	@FindBy(linkText = "Random page")
 	public WebElement randomPage;
-	
+
 	@FindBy(linkText = "Help")
 	public WebElement help;
 
