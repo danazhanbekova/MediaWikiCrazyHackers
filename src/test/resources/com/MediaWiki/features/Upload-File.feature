@@ -8,7 +8,7 @@ Feature: Upload File
     And I upload groups logo
     And I logout from browser
 
-  @smoketest
+ 
   Scenario: Uploading page verify
     Given I should log into WikiMedia
     When Logo for page should be visible
