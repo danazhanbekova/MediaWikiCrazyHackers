@@ -3,26 +3,20 @@ Feature: Checking Page Information functionality
   Background: 
     Given I open a MediaWiki page
 
-  @pageinfo
-  Scenario Outline: Verify that elements on Page are presented
+  @pageinfo1
+  Scenario: Verify that elements on Page are presented
     When I click on Page Information
-    Then I should see that title changed for "Information for \"Main Page\""
-    And I should see next "<headers>":
-
-    Examples: 
-      | headers           |
+    Then title should contain "Cybertek's Wiki!"
+    And I should see next: 
       | Basic information |
       | Page protection   |
       | Edit history      |
 
-  @pageinfo
-  Scenario Outline: Verify WebElements and Table
+  @pageinfo1
+  Scenario: Verify WebElements and Table
     When I click on Page Information
-    Then I should see that "Number of redirects to this page" is presented
-    And Table is matching "<expected>" table:
-
-    Examples: 
-      | expected                                     |
+    Then I should see that logo is presented
+    And Table is matching next table:
       | Page creator                                 |
       | Date of page creation                        |
       | Latest editor                                |

@@ -1,21 +1,39 @@
 package com.MediaWiki.pages;
 
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.MediaWiki.utilities.Driver;
+
 public class PageInformationPage {
 	
-	@FindBy( xpath = "//span[@class='mw-headline']")
-	public WebElement headers;
+	public List<WebElement> headers(){
+		String xpath = "//span[@class='mw-headline']";
+		return Driver.getDriver().findElements(By.xpath(xpath));
+	}
 	
 	@FindBy( xpath = "//a[.='MediaWiki default']")
 	public WebElement mediaWikiDefault;
 	
-	@FindBy( xpath = "(//table[@class='wikitable mw-page-info'])[3]//td")
-	public List<WebElement> bigTable;
+	public boolean imageIsPresented() {
+		WebElement image = Driver.getDriver().findElement(By.xpath("//img[@alt='Powered by MediaWiki']"));
+		if(image!=null) {
+			return image.isDisplayed();
+		}
+		return false;
+	}
 	
-	@FindBy( xpath = "//a[.='Number of redirects to this page']")
-	public WebElement numberofRedirects;
+	public List<WebElement> bigTable(){
+		String xpath = "(//table[@class='wikitable mw-page-info'])[3]//td";
+		return Driver.getDriver().findElements(By.xpath(xpath));
+	}
+	
+	public WebElement numberofRedirects() {
+		String linkText = "Number of redirects to this page";
+		return Driver.getDriver().findElement(By.linkText(linkText));
+	}
 
 }

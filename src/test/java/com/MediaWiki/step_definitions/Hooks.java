@@ -30,7 +30,7 @@ public class Hooks {
 			// adding a screenshot to the report
 			scenario.embed(screenshot, "image/png");
 		}
-		Driver.closeDriver();
+		//Driver.closeDriver();
 	}
 
 }
