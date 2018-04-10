@@ -12,5 +12,4 @@ Feature: Upload File
   Scenario: Uploading page verify
     Given I should log into WikiMedia
     When Logo for page should be visible
-    Then I press upload file section
     Then menu options should be visible

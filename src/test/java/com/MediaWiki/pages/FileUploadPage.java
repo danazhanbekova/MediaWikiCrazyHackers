@@ -73,7 +73,7 @@ public class FileUploadPage {
 		summary.sendKeys("Cybertek Demo Phase 3 is coming");
 		Select list = new Select(licensing);
 		list.selectByIndex(0);
-		// watchThisFileOption.click();
+		 watchThisFileOption.click();
 		BrowserUtils.waitFor(5);
 
 		ignoreAnyWarnings.click();

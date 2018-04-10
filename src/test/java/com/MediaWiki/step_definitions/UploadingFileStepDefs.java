@@ -27,7 +27,6 @@ public class UploadingFileStepDefs {
 
 	@When("^Logo for page should be visible$")
 	public void logo_for_page_should_be_visible() {
-		BrowserUtils.waitFor(6);
 		fileUploadPage.uploadFile.click();
 		assertTrue(fileUploadPage.logo.isDisplayed(), "Logo doesn't displayed");
 	}
