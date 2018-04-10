@@ -1,6 +1,6 @@
 Feature: Create New Page
 
- @smoke
+ @smoketest
   Scenario Outline: Create and Verify New Page Creation
   	Given I log into MediaWiki
     When I create a "<Newpage>"
@@ -14,7 +14,7 @@ Feature: Create New Page
 
     
 
-
+	@smoketest
   Scenario Outline: Verify Page Creation Features
     When I attempt to  a create a "<Newpage>" that already exists
     Then I should be taken to that "<Newpage>" directly

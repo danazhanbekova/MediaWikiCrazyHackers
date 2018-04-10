@@ -1,6 +1,6 @@
 Feature: Help
 
-  @monika
+  @smoketest
   Scenario: Verify Help options
     Given I should log into WikiMedia
     When I clicked on  help button
