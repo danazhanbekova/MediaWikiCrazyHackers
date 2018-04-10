@@ -7,7 +7,7 @@ public class CukesRunners {
 	@CucumberOptions(plugin = { "pretty",
 			"html:target/cucumber-report",
 			"json:target/cucumber.json"}, 
-			tags = "@monika", 
+			tags = "@printable", 
 			features = "src/test/resources/com/MediaWiki/features/", 
 			glue = "com/MediaWiki/step_definitions/", dryRun = false)
 	public class CukesRunner extends AbstractTestNGCucumberTests {

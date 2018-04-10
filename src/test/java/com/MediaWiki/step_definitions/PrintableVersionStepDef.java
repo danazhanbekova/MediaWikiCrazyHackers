@@ -3,7 +3,11 @@ package com.MediaWiki.step_definitions;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import org.openqa.selenium.JavascriptExecutor;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.By;
 
 import com.MediaWiki.pages.HomePage;
 import com.MediaWiki.pages.PrintableVersionPage;
@@ -20,18 +24,27 @@ public class PrintableVersionStepDef {
 	PrintableVersionPage print = new PrintableVersionPage();
 
 	@When("^I click on Printable Version$")
-	public void i_click_on_Printable_Version() {
-		homePage.printableVersion.click();
-//		Alert alert = Driver.getDriver().switchTo().alert();
+	public void i_click_on_Printable_Version() throws AWTException {
 		BrowserUtils.waitForPageToLoad(4);
-//		alert.accept();
+
+		homePage.printableVersion.click();
+
+		Driver.getDriver().findElement(By.className("left-column multirow")).click();
+		
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_ESCAPE);
+		r.keyRelease(KeyEvent.VK_ESCAPE);
+		// Alert alert = Driver.getDriver().switchTo().alert();
+		// alert.accept();
+		print.cancelButton.click();
 		// WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-		// wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+		// wait.until(ExpectedConditions.visibilityOf(print.cancelButton)).click();
+		// print.cancelButton.click();
 		// Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandles().toArray()[0].toString());
 		// Actions action = new Actions(Driver.getDriver());
 		// action.moveToElement(print.cancelButton).click().perform();
-		JavascriptExecutor js = (JavascriptExecutor) (Driver.getDriver());
-		js.executeScript("arguments[0].click();", print.printButton);
+		// JavascriptExecutor js = (JavascriptExecutor) (Driver.getDriver());
+		// js.executeScript("arguments[0].click();", print.printButton);
 	}
 
 	@Then("^Print and cancel buttons should be visible$")
