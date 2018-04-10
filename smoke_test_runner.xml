@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MediaWiki Smoke test Automation" verbose="2">
+
+	<test name="Smoke test">
+		<classes>
+			<class name ="com.MediaWiki.runners.SmokeTestRunner"></class>
+		</classes>
+	</test>
+
+</suite>

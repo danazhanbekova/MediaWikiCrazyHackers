@@ -1,16 +1,11 @@
 package com.MediaWiki.pages;
 
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.MediaWiki.utilities.Driver;
 import com.MediaWiki.utilities.NumbersUtil;
-
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class HomePage {
 	public HomePage() {

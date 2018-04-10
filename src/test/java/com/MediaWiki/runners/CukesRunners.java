@@ -5,12 +5,14 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 public class CukesRunners {
 	@CucumberOptions(plugin = { "pretty",
-			"html:target/cucumber-report"
+			"html:target/cucumber-report",
+			"json:target/cucumber.json"
 			},
 			tags = "@pageinfo1",
 			features = "src/test/resources/com/MediaWiki/features/",
 			glue = "com/MediaWiki/step_definitions/",
 			dryRun = false)
+
 	public class CukesRunner extends AbstractTestNGCucumberTests {
 
 	}

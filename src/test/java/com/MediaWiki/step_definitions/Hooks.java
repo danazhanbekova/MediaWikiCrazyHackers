@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import com.MediaWiki.utilities.Driver;
 
@@ -15,10 +14,9 @@ import cucumber.api.java.Before;
 public class Hooks {
 
 	@Before
-	public void setUp() {
-		WebDriver driver = Driver.getDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.manage().window().fullscreen();
+	public void setUp(Scenario scenario) {
+		Driver.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Driver.getDriver().manage().window().fullscreen();
 
 	}
 
@@ -30,7 +28,7 @@ public class Hooks {
 			// adding a screenshot to the report
 			scenario.embed(screenshot, "image/png");
 		}
-		//Driver.closeDriver();
+		Driver.closeDriver();
 	}
 
 }
