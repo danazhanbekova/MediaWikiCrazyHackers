@@ -36,6 +36,9 @@ public class HomePage {
 	@FindBy(linkText = "Printable version")
 	public WebElement printableVersion;
 	
+	@FindBy(linkText = "Page information")
+	public WebElement pageInformation;
+	
 	
 	
 	

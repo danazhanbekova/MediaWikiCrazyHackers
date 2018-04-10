@@ -12,9 +12,15 @@ Feature: Checking Printable Version functionality
     Then I should see two options Portrait and Landscape
     When I hover to Color dropdown element and press it
     Then I should see two options Color and Black and White
+<<<<<<< HEAD
 
   # @printable
   Scenario: Checking new window pop up and print page is visible
+=======
+    
+   
+    Scenario: Checking new window pop up and print page is visible
+>>>>>>> branch 'master' of https://github.com/danazhanbekova/MediaWikiCrazyHackers.git
     When I click on Printable Version
     Then Print page is visible
     When I hover to More settings and press it
