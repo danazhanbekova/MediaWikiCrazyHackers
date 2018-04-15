@@ -6,11 +6,13 @@ import static org.testng.Assert.assertTrue;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 
 import com.MediaWiki.pages.HomePage;
 import com.MediaWiki.pages.PrintableVersionPage;
+import com.MediaWiki.utilities.BrowserUtils;
 import com.MediaWiki.utilities.Driver;
 
 import cucumber.api.PendingException;
@@ -26,7 +28,25 @@ public class PrintableVersionStepDef {
 
 	public void i_click_on_Printable_Version() throws AWTException {
 
+
 		homePage.printableVersion.click();
+		Driver.getDriver().manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+		((JavascriptExecutor) Driver.getDriver()).executeAsyncScript(
+				"var callback = arguments[1];" + "window.print = function(){callback();};" + "arguments[0].click();",
+				print.printButton);
+		// Alert alert = Driver.getDriver().switchTo().alert();
+		// alert.dismiss();
+		// WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+		// wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+		// Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandles().toArray()[1].toString());
+		// Actions action = new Actions(Driver.getDriver());
+		// action.moveToElement(print.cancelButton).click().perform();
+		homePage.printableVersion.click();
+		// Alert alert = Driver.getDriver().switchTo().alert();
+		BrowserUtils.waitForPageToLoad(4);
+
+		homePage.printableVersion.click();
+
 		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ESCAPE);
 		r.keyRelease(KeyEvent.VK_ESCAPE);
@@ -39,25 +59,22 @@ public class PrintableVersionStepDef {
 		// Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandles().toArray()[0].toString());
 		// Actions action = new Actions(Driver.getDriver());
 		// action.moveToElement(print.cancelButton).click().perform();
-
-		JavascriptExecutor js = (JavascriptExecutor) (Driver.getDriver());
-		js.executeScript("arguments[0].click();", print.printButton);
-
 	}
-
 	@Then("^Print and cancel buttons should be visible$")
 	public void print_and_cancel_buttons_should_be_visible() {
 		assertTrue(print.printButton.isDisplayed());
 		assertTrue(print.cancelButton.isDisplayed());
 		/*
 		 * wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-		 * driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
-		 * assertTrue(home.printButton.isDisplayed());
+		 * driver.switchTo().window(driver.getWindowHandles().toArray()[1].
+		 * toString()); assertTrue(home.printButton.isDisplayed());
 		 * assertTrue(home.aLLRadioButton.isSelected());
 		 * driver.switchTo().frame("pdf-viewer");
-		 * assertTrue(home.printPage.isDisplayed()); driver.switchTo().defaultContent();
-		 * home.cancelButton.click(); Thread.sleep(2000);
-		 * driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
+		 * assertTrue(home.printPage.isDisplayed());
+		 * driver.switchTo().defaultContent(); home.cancelButton.click();
+		 * Thread.sleep(2000);
+		 * driver.switchTo().window(driver.getWindowHandles().toArray()[0].
+		 * toString());
 		 */
 	}
 
