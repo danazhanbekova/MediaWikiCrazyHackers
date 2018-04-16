@@ -7,7 +7,7 @@ public class CukesRunners {
 	@CucumberOptions(plugin = { "pretty",
 
 			"json:target/cucumber.json" }, 
-			tags = "@account", 
+			tags = "@smoke_test", 
 			features = "src/test/resources/com/MediaWiki/features/", 
 			glue = "com/MediaWiki/step_definitions/", 
 			dryRun = false)

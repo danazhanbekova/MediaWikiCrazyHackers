@@ -1,4 +1,4 @@
-  @account
+  @smoke_test
 Feature: Create Account
 
   Background: 

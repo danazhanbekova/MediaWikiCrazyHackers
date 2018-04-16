@@ -5,7 +5,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(plugin = { "pretty",
 		"html:target/cucumber-report" }, 
-	tags = "@smoketest", 
+	tags = "@upload_file", 
 	features = "src/test/resources/com/MediaWiki/features/", 
 	glue = "com/MediaWiki/step_definitions/", 
 	dryRun = false)
