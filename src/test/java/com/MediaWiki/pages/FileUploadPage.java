@@ -66,14 +66,14 @@ public class FileUploadPage {
 	@FindBy(linkText = "Printable version")
 	public WebElement printableVersion;
 
-	String filePath = "/Users/MarifatAzamatuulu/Desktop/myLogo.jpg";
+	String filePath = System.getProperty("user.dir") + "/src/test/resources/com/MediaWiki/Data/myLogo.jpg";
 
 	public void uploadFileMethod() {
 		chooseFileBtn.sendKeys(filePath);
 		summary.sendKeys("Cybertek Demo Phase 3 is coming");
 		Select list = new Select(licensing);
 		list.selectByIndex(0);
-		 watchThisFileOption.click();
+		watchThisFileOption.click();
 		BrowserUtils.waitFor(5);
 
 		ignoreAnyWarnings.click();
