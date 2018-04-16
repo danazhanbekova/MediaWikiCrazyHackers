@@ -15,7 +15,7 @@ public class HomePage {
 	@FindBy(linkText = "Log in")
 	public WebElement logIn;
 	
-	@FindBy(xpath="//input[@id='wpName2']")
+	@FindBy(xpath="//input[@id='wpName1']")
 	public WebElement userName;
 
 	@FindBy(xpath = "//input[@id='wpPassword1']")
